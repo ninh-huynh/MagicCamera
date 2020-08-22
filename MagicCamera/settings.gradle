@@ -1,0 +1,2 @@
+include ':magicFilter'
+include ':magicCamera'
