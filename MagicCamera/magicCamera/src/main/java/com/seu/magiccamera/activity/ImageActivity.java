@@ -1,16 +1,13 @@
 package com.seu.magiccamera.activity;
 
-import java.io.InputStream;
-import java.net.URL;
-
-import android.app.Activity;
-import android.app.Fragment;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
+import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -29,7 +26,10 @@ import com.seu.magiccamera.common.view.edit.frame.ImageEditFrameView;
 import com.seu.magicfilter.display.MagicImageDisplay;
 import com.seu.magicfilter.utils.SaveTask.onPictureSaveListener;
 
-public class ImageActivity extends Activity{
+import java.io.InputStream;
+import java.net.URL;
+
+public class ImageActivity extends AppCompatActivity {
 	private RadioGroup mRadioGroup;
 	
 	private Fragment[] mFragments;
@@ -104,47 +104,47 @@ public class ImageActivity extends Activity{
 				switch (checkedId) {
 				case R.id.image_edit_adjust:
 					if(!mFragments[2].isAdded())
-						getFragmentManager().beginTransaction().add(R.id.image_edit_fragment_container, mFragments[2])
+						getSupportFragmentManager().beginTransaction().add(R.id.image_edit_fragment_container, mFragments[2])
 							.show(mFragments[2]).commit();		
 					else
-						getFragmentManager().beginTransaction().show(mFragments[2]).commit();
+						getSupportFragmentManager().beginTransaction().show(mFragments[2]).commit();
 					mFragmentTag = 2;
 					break;
 				case R.id.image_edit_filter:
 					if(!mFragments[3].isAdded())
-						getFragmentManager().beginTransaction().add(R.id.image_edit_fragment_container, mFragments[3])
+						getSupportFragmentManager().beginTransaction().add(R.id.image_edit_fragment_container, mFragments[3])
 							.show(mFragments[3]).commit();		
 					else	
-						getFragmentManager().beginTransaction().show(mFragments[3]).commit();
+						getSupportFragmentManager().beginTransaction().show(mFragments[3]).commit();
 					mFragmentTag = 3;
 					break;
 				case R.id.image_edit_frame:
 					if(!mFragments[4].isAdded())
-						getFragmentManager().beginTransaction().add(R.id.image_edit_fragment_container, mFragments[4])
+						getSupportFragmentManager().beginTransaction().add(R.id.image_edit_fragment_container, mFragments[4])
 							.show(mFragments[4]).commit();		
 					else
-						getFragmentManager().beginTransaction().show(mFragments[4]).commit();
+						getSupportFragmentManager().beginTransaction().show(mFragments[4]).commit();
 					mFragmentTag = 4;
 					break;
 				case R.id.image_edit_adds:
 					if(!mFragments[1].isAdded())
-						getFragmentManager().beginTransaction().add(R.id.image_edit_fragment_container, mFragments[1])
+						getSupportFragmentManager().beginTransaction().add(R.id.image_edit_fragment_container, mFragments[1])
 							.show(mFragments[1]).commit();		
 					else
-						getFragmentManager().beginTransaction().show(mFragments[1]).commit();
+						getSupportFragmentManager().beginTransaction().show(mFragments[1]).commit();
 					mFragmentTag = 1;
 					break;
 				case R.id.image_edit_beauty:	
 					if(!mFragments[0].isAdded())
-						getFragmentManager().beginTransaction().add(R.id.image_edit_fragment_container, mFragments[0])
+						getSupportFragmentManager().beginTransaction().add(R.id.image_edit_fragment_container, mFragments[0])
 							.show(mFragments[0]).commit();		
 					else
-						getFragmentManager().beginTransaction().show(mFragments[0]).commit();
+						getSupportFragmentManager().beginTransaction().show(mFragments[0]).commit();
 					mFragmentTag = 0;
 					break;
 				default:
 					if(mFragmentTag != -1)
-						getFragmentManager().beginTransaction()
+						getSupportFragmentManager().beginTransaction()
 							.hide(mFragments[mFragmentTag])
 							.commit();
 					mFragmentTag = -1;

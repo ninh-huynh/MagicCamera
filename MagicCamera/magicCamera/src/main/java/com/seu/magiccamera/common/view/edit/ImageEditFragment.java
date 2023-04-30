@@ -1,11 +1,11 @@
 package com.seu.magiccamera.common.view.edit;
 
-import android.app.AlertDialog;
-import android.app.Fragment;
-import android.app.AlertDialog.Builder;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
+import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog.Builder;
 
 import com.seu.magicfilter.display.MagicImageDisplay;
 
@@ -21,14 +21,14 @@ public abstract class ImageEditFragment extends Fragment{
 	public void onHide(){
 		if(isChanged()){
 			AlertDialog.Builder builder = new Builder(mContext);
-			builder.setTitle("ÌáÊ¾").setMessage("ÊÇ·ñÓ¦ÓÃÐÞ¸Ä£¿").setNegativeButton("ÊÇ", new OnClickListener() {
+			builder.setTitle("ï¿½ï¿½Ê¾").setMessage("ï¿½Ç·ï¿½Ó¦ï¿½ï¿½ï¿½Þ¸Ä£ï¿½").setNegativeButton("ï¿½ï¿½", new OnClickListener() {
 				
 				@Override
 				public void onClick(DialogInterface dialog, int which) {	
 					onDialogButtonClick(dialog);
 					mMagicDisplay.commit();					
 				}
-			}).setPositiveButton("·ñ", new OnClickListener() {
+			}).setPositiveButton("ï¿½ï¿½", new OnClickListener() {
 				
 				@Override
 				public void onClick(DialogInterface dialog, int which) {	

@@ -1,14 +1,13 @@
 package com.seu.magiccamera.widget;
 
-import com.seu.magiccamera.R;
-
 import android.content.Context;
 import android.graphics.PixelFormat;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.IBinder;
-import android.support.v4.view.GravityCompat;
+import androidx.core.view.GravityCompat;
+import androidx.appcompat.widget.AppCompatSeekBar;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -20,7 +19,9 @@ import android.widget.FrameLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-public class BubbleSeekBar extends SeekBar{
+import com.seu.magiccamera.R;
+
+public class BubbleSeekBar extends AppCompatSeekBar {
 	private Drawable mThumbDrawable;
 	private BubbleIndicator mBubbleIndicator;
 	private boolean mIsListenerSet = false;

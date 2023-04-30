@@ -1,15 +1,16 @@
 package com.seu.magiccamera.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
+
 import com.seu.magiccamera.R;
 import com.seu.magiccamera.common.utils.Constants;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

@@ -1,9 +1,9 @@
 package com.seu.magiccamera.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class ShareActivity extends Activity{
+public class ShareActivity extends AppCompatActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

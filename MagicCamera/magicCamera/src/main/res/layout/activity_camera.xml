@@ -1,4 +1,5 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -27,7 +28,7 @@
 		        android:layout_width="0dip"
 		        android:layout_height="match_parent"
 		      	android:layout_weight="1.0"
-		        android:src="@drawable/btn_camera_album"
+		        app:srcCompat="@drawable/btn_camera_album"
 		        android:scaleType="center">
 		    </ImageView>
 		        
@@ -36,7 +37,7 @@
 		        android:layout_height="match_parent"
 		      	android:layout_weight="1.0"
 		      	android:id="@+id/btn_camera_shutter"
-		        android:src="@drawable/btn_camera_shutter">	        
+		        app:srcCompat="@drawable/btn_camera_shutter">
 		    </ImageView>
 		    
 		    <ImageView 
@@ -45,7 +46,7 @@
 		      	android:layout_weight="1.0"
 		      	android:scaleType="center"
 		      	android:id="@+id/btn_camera_filter"
-		        android:src="@drawable/btn_camera_filter">        
+		        app:srcCompat="@drawable/btn_camera_filter">
 		    </ImageView>
 		</LinearLayout>
 	</RelativeLayout>

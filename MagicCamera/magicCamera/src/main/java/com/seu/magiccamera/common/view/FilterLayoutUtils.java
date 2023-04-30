@@ -1,22 +1,23 @@
 package com.seu.magiccamera.common.view;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
+
 import com.seu.magiccamera.R;
 import com.seu.magiccamera.common.adapter.FilterAdapter;
 import com.seu.magiccamera.common.bean.FilterInfo;
 import com.seu.magicfilter.display.MagicDisplay;
 import com.seu.magicfilter.filter.helper.MagicFilterType;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class FilterLayoutUtils{
 	private Context mContext;
@@ -36,12 +37,12 @@ public class FilterLayoutUtils{
 	}
 
 	public void init(){
-		btn_Favourite = (ImageView) ((Activity) mContext).findViewById(R.id.btn_camera_favourite);  
+		btn_Favourite = (ImageView) ((AppCompatActivity) mContext).findViewById(R.id.btn_camera_favourite);
 		btn_Favourite.setOnClickListener(btn_Favourite_listener);
 		
 		LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext);  
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL); 
-        RecyclerView mFilterListView = (RecyclerView)((Activity) mContext).findViewById(R.id.filter_listView);
+        RecyclerView mFilterListView = (RecyclerView)((AppCompatActivity) mContext).findViewById(R.id.filter_listView);
         mFilterListView.setLayoutManager(linearLayoutManager);       
         
         mAdapter = new FilterAdapter(mContext);
@@ -74,7 +75,7 @@ public class FilterLayoutUtils{
 		@Override
 		public void onFilterChanged(int filterType, int position) {
 			// TODO Auto-generated method stub
-			int Type = filterInfos.get(position).getFilterType();//»ñÈ¡ÀàÐÍ
+			int Type = filterInfos.get(position).getFilterType();//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
 			FilterLayoutUtils.this.position = position;
 			mMagicDisplay.setFilter(filterType);
 			mFilterType = filterType;
@@ -83,7 +84,7 @@ public class FilterLayoutUtils{
 			else
 				btn_Favourite.setVisibility(View.INVISIBLE);
 			btn_Favourite.setSelected(filterInfos.get(position).isFavourite());
-			if(position <= favouriteFilterInfos.size()){//µã»÷FavouriteÁÐ±í
+			if(position <= favouriteFilterInfos.size()){//ï¿½ï¿½ï¿½Favouriteï¿½Ð±ï¿½
 				for(int i = favouriteFilterInfos.size() + 2; i < filterInfos.size(); i++){
 					if(filterInfos.get(i).getFilterType() == Type){
 						filterInfos.get(i).setSelected(true);
@@ -149,17 +150,17 @@ public class FilterLayoutUtils{
 		@Override
 		public void onClick(View v) {
 			if(position != 0 && filterInfos.get(position).getFilterType() != -1){
-				int Type = filterInfos.get(position).getFilterType();//»ñÈ¡ÀàÐÍ
+				int Type = filterInfos.get(position).getFilterType();//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
 				if(filterInfos.get(position).isFavourite()){
-					//È¡ÏûFavourite------------------------------------
+					//È¡ï¿½ï¿½Favourite------------------------------------
 					btn_Favourite.setSelected(false);
 					filterInfos.get(position).setFavourite(false);
 						mAdapter.notifyItemChanged(position);
 						int i = 0;
 						for(i = 0; i < favouriteFilterInfos.size(); i++){
-							if(Type == favouriteFilterInfos.get(i).getFilterType()){//È¡Ïû¶ÔÓ¦FavouriteÁÐ±íÖÐÔªËØ
+							if(Type == favouriteFilterInfos.get(i).getFilterType()){//È¡ï¿½ï¿½ï¿½ï¿½Ó¦Favouriteï¿½Ð±ï¿½ï¿½ï¿½Ôªï¿½ï¿½
 								favouriteFilterInfos.remove(i);
-								filterInfos.remove(i+1);//´ÓfilterInfosÈ¥³ý
+								filterInfos.remove(i+1);//ï¿½ï¿½filterInfosÈ¥ï¿½ï¿½
 								mAdapter.notifyItemRemoved(i+1);
 								mAdapter.setLastSelected(mAdapter.getLastSelected() - 1);
 								break;
@@ -167,8 +168,8 @@ public class FilterLayoutUtils{
 						}
 					position --;
 					mAdapter.notifyItemRangeChanged(i + 1, filterInfos.size() - i - 1);
-				}else{//Ôö¼Ófavourite
-					btn_Favourite.setSelected(true);//¸ü¸Ä×´Ì¬
+				}else{//ï¿½ï¿½ï¿½ï¿½favourite
+					btn_Favourite.setSelected(true);//ï¿½ï¿½ï¿½ï¿½×´Ì¬
 					filterInfos.get(position).setFavourite(true);
 					mAdapter.notifyItemChanged(position);
 					
@@ -190,7 +191,7 @@ public class FilterLayoutUtils{
 	
 	private void loadFavourite(){
 		favouriteFilterInfos = new ArrayList<FilterInfo>();
-		String[] typeList = ((Activity) mContext).getSharedPreferences("favourite_filter",Activity.MODE_PRIVATE)
+		String[] typeList = ((AppCompatActivity) mContext).getSharedPreferences("favourite_filter", AppCompatActivity.MODE_PRIVATE)
 				.getString("favourite_filter_list", "").split(",");
 		for(int i = 0; i < typeList.length && typeList[i] != ""; i++){
 			FilterInfo filterInfo = new FilterInfo();
@@ -201,7 +202,7 @@ public class FilterLayoutUtils{
 	}
 	
 	private void saveFavourite(){
-		SharedPreferences shared = ((Activity) mContext).getSharedPreferences("favourite_filter",Activity.MODE_PRIVATE);
+		SharedPreferences shared = ((AppCompatActivity) mContext).getSharedPreferences("favourite_filter", AppCompatActivity.MODE_PRIVATE);
 		Editor editor = shared.edit();
 		editor.remove("favourite_filter_list");
 		editor.commit();

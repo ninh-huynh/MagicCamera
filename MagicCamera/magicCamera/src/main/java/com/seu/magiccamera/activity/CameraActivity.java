@@ -3,20 +3,21 @@ package com.seu.magiccamera.activity;
 import android.animation.Animator;
 import android.animation.Animator.AnimatorListener;
 import android.animation.ObjectAnimator;
-import android.app.Activity;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.FrameLayout;
 import android.widget.FrameLayout.LayoutParams;
 import android.widget.LinearLayout;
+
 import com.seu.magiccamera.R;
 import com.seu.magiccamera.common.utils.Constants;
 import com.seu.magiccamera.common.view.FilterLayoutUtils;
 import com.seu.magicfilter.display.MagicCameraDisplay;
 
-public class CameraActivity extends Activity{
+public class CameraActivity extends AppCompatActivity {
 	private MagicCameraDisplay mMagicCameraDisplay;
 	private LinearLayout mFilterLayout;
 	@Override

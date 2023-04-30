@@ -1,12 +1,14 @@
-apply plugin: 'com.android.library'
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion "29.0.3"
+    compileSdk 33
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 21
+        minSdkVersion 21
+        targetSdkVersion 33
 
 
         externalNativeBuild {
@@ -26,11 +28,12 @@ android {
     externalNativeBuild {
         cmake {
             path "src/main/cpp/CMakeLists.txt"
-            version "3.10.2"
+            version "3.22.1"
         }
     }
+    namespace 'com.seu.magicfilter'
 }
 
 dependencies {
-    implementation 'com.android.support:support-v4:21.0.3'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
 }

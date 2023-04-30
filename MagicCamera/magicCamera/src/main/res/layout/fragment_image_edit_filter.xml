@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>  
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/layout_filter_tab"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -11,9 +12,9 @@
       	android:layout_height="wrap_content"
       	android:layout_marginLeft="10dp"
       	android:layout_marginBottom="10dp"
-      	android:src="@drawable/take_filter_favorite_btn" 
+      	app:srcCompat="@drawable/take_filter_favorite_btn"
 		android:visibility="invisible"/>
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/filter_listView"
         android:layout_width="match_parent"
         android:layout_height="94.0dip"
@@ -32,5 +33,5 @@
         android:layout_height="40dip" 
         android:scaleType="center"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/btn_layout_filters_bar_close" />
+        app:srcCompat="@drawable/btn_layout_filters_bar_close" />
 </LinearLayout>
