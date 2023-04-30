@@ -1,6 +1,6 @@
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
 }
 
 
@@ -30,9 +30,7 @@ android {
 
 dependencies {
     implementation(project(":magicFilter"))
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation("androidx.recyclerview:recyclerview:1.3.0")
-
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.recyclerview)
 }
 
