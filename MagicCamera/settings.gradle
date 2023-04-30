@@ -12,6 +12,6 @@ dependencyResolutionManagement {
     }
 }
 
-
-include ':magicFilter'
-include ':magicCamera'
+rootProject.name = "Magic Camera"
+include(":magicFilter")
+include(":magicCamera")
